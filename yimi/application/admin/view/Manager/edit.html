@@ -1,0 +1,91 @@
+{include file="common/header"}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    {include file="common/left"}
+    <!-- /Page Sidebar -->
+    <!-- Page Content -->
+    <div class="page-content">
+      <!-- Page Breadcrumb -->
+      <div class="page-breadcrumbs">
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">系统</a>
+          </li>
+          <li>
+            <a href="{:url('Manager/index')}">管理员管理</a>
+          </li>
+          <li class="active">修改管理员</li>
+        </ul>
+      </div>
+      <!-- /Page Breadcrumb -->
+
+      <!-- Page Body -->
+      <div class="page-body">
+
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="widget">
+              <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">修改管理员</span>
+              </div>
+              <div class="widget-body">
+                <div id="horizontal-form">
+                  <form class="form-horizontal" role="form" action="{:url('Manager/doEdit')}" method="post">
+                    <input type="hidden" name="manager_id" value="{$data.manager_id}">
+                    <div class="form-group">
+                      <label for="username" class="col-sm-2 control-label no-padding-right">管理员名</label>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="username" placeholder="" name="manager_name" required="" type="text" value="{$data.manager_name}">
+                      </div>
+                      <p class="help-block col-sm-4 red">* 必填</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="group_id" class="col-sm-2 control-label no-padding-right">管理员密码</label>
+                      <div class="col-sm-6">
+                        <input class="form-control" id="password" placeholder="" name="password" type="text">
+                      </div>
+                      <p class="help-block col-sm-4 red">为空则密码不作修改</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="group_id" class="col-sm-2 control-label no-padding-right">管理员状态</label>
+                      <div class="col-sm-6">
+                      <select name="is_lock">
+                        <option value="0" {$data.is_lock == 0 ? 'selected':''}>正常</option>
+                        <option value="1" {$data.is_lock == 1 ? 'selected':''}>冻结</option>
+                      </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">保存信息</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /Page Body -->
+    </div>
+    <!-- /Page Content -->
+  </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__STATIC__/admin/style/jquery_002.js"></script>
+<script src="__STATIC__/admin/style/bootstrap.js"></script>
+<script src="__STATIC__/admin/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__STATIC__/admin/style/beyond.js"></script>
+
+
+</body></html>

@@ -1,0 +1,75 @@
+date/time         : 2017-09-21, 10:39:01, 172ms
+computer name     : PC-20170318GCSX
+user name         : SYSTEM <admin>
+registered owner  : Microsoft / Microsoft
+operating system  : Windows 7 x64 Service Pack 1 build 7601
+system language   : Chinese (Simplified)
+system up time    : 2 hours
+program up time   : 241 milliseconds
+processors        : 4x Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+physical memory   : 3876/8112 MB (free/total)
+free disk space   : (C:) 182.01 GB (D:) 61.20 GB
+display mode      : 1024x768, 32 bit
+process id        : $1d60
+allocated memory  : 13.25 MB
+command line      : D:\UPUPW\sendmail\sendmail.exe -t
+executable        : sendmail.exe
+exec. date/time   : 2015-12-18 18:46
+compiled with     : Delphi 2006/07
+madExcept version : 3.0l
+callstack crc     : $205f8196, $62082a9c, $62082a9c
+exception number  : 1
+exception class   : EInOutError
+exception message : I/O error 105.
+
+main thread ($144c):
+004b675c +18a8 sendmail.exe sendmail 922 +440 initialization
+7744013e +000a ntdll.dll                      KiUserExceptionDispatcher
+0040474d +001d sendmail.exe System   262   +0 @AfterConstruction
+004b5f14 +1060 sendmail.exe sendmail 808 +326 initialization
+758c3368 +0010 kernel32.dll                   BaseThreadInitThunk
+
+thread $168c:
+77451f4f +0b ntdll.dll     NtWaitForWorkViaWorkerFactory
+758c3368 +10 kernel32.dll  BaseThreadInitThunk
+
+thread $1e70:
+77450166 +0e ntdll.dll     NtWaitForMultipleObjects
+758c3368 +10 kernel32.dll  BaseThreadInitThunk
+
+stack dump:
+0018f708  5c 67 4b 00 de fa ed 0e - 01 00 00 00 07 00 00 00  \gK.............
+0018f718  1c f7 18 00 5c 67 4b 00 - 18 cb b4 00 5c 67 4b 00  ....\gK.....\gK.
+0018f728  5c 67 4b 00 08 fe 18 00 - 88 ff 18 00 38 f7 18 00  \gK.........8...
+0018f738  00 00 00 00 64 30 40 00 - 00 00 00 00 10 4f b4 00  ....d0@......O..
+0018f748  5c 67 4b 00 00 00 00 00 - 47 fa 41 00 10 4f b4 00  \gK.....G.A..O..
+0018f758  58 f8 18 00 84 f7 18 00 - 90 f7 18 00 00 00 00 00  X...............
+0018f768  00 00 00 00 00 00 00 00 - 29 35 49 77 58 f8 18 00  ........)5IwX...
+0018f778  08 fe 18 00 a8 f8 18 00 - 2c f8 18 00 9c fd 18 00  ........,.......
+0018f788  3d 35 49 77 08 fe 18 00 - 40 f8 18 00 fb 34 49 77  =5Iw....@....4Iw
+0018f798  58 f8 18 00 08 fe 18 00 - a8 f8 18 00 2c f8 18 00  X...........,...
+0018f7a8  1c 67 4b 00 00 00 00 00 - 58 f8 18 00 08 fe 18 00  .gK.....X.......
+0018f7b8  9c 34 49 77 58 f8 18 00 - 08 fe 18 00 a8 f8 18 00  .4IwX...........
+0018f7c8  2c f8 18 00 1c 67 4b 00 - 00 00 00 00 58 f8 18 00  ,....gK.....X...
+0018f7d8  00 00 00 00 00 00 00 00 - e8 65 9f 00 20 8f 5a 00  .........e....Z.
+0018f7e8  5c f8 18 00 fc f7 18 00 - ae a0 74 71 e8 65 9f 00  \.........tq.e..
+0018f7f8  d4 65 9f 00 5c f8 18 00 - 63 a0 74 71 d4 65 9f 00  .e..\...c.tq.e..
+0018f808  cc 65 9f 00 b4 08 a8 02 - 60 08 a8 02 10 00 00 00  .e......`.......
+0018f818  04 00 00 00 04 00 00 00 - 00 00 00 00 10 00 00 00  ................
+0018f828  90 65 9f 00 20 00 00 00 - 72 00 00 00 00 00 19 00  .e......r.......
+0018f838  00 b0 18 00 3b 56 74 00 - 5c fd 18 00 43 01 44 77  ....;Vt.\...C.Dw
+
+disassembling:
+[...]
+004b6742       mov     edx, [ebp-$15c]
+004b6748       mov     eax, [$4bd968]
+004b674d       call    -$b0c2a ($405b28)      ; System.@Write0LString
+004b6752       call    -$b297b ($403ddc)      ; System.@WriteLn
+004b6757       call    -$b36bc ($4030a0)      ; System.@_IOTest
+004b675c 922 > mov     eax, [ebx+4]
+004b675f       call    -$3b3c ($4b2c28)       ; sendmail.errorLog
+004b6764 924   call    -$b1a55 ($404d14)      ; System.@RaiseAgain
+004b6769       call    -$b1a06 ($404d68)      ; System.@DoneExcept
+004b676e 931   xor     eax, eax
+004b6770       pop     edx
+[...]

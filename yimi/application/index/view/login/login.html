@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录_一米市集</title>
+    <script src="__STATIC__/index/js/jquery.min.js"></script>
+    <script src="__STATIC__/index/js/index.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/login.css">
+    <link rel="icon" href="__STATIC__/index/img/favicon.ico" type="image/x-ico"/>
+</head>
+<body>
+<!--顶部-->
+<div class="top"></div>
+<!--主要内容-->
+<div class="container">
+    <!--头部-->
+   {include file="common/header" /}
+    <!--主模块-->
+    <div class="section">
+        <div class="left fl">
+            <h1 class="borderD">登录</h1>
+            <!--登录表单-->
+            <form action="{:url('Login/login')}" method="post">
+                <p>登录账号</p>
+                <p><input type="text" placeholder="用户名/邮箱地址/手机号" name="username"></p>
+                <p>密码</p>
+                <p><input type="password" placeholder="填写密码" name="password"></p>
+
+
+                <p>校验码</p>
+                <input type="text" placeholder="填写验证码" name="yanzhengma" id="shortIn">
+                <img src="" alt="" width="65px" height="20px">
+                <a href="" style="font-size: 0.8em">看不清楚?换一个</a>
+
+                <p><label><input type="checkbox" class="checkbox" checked>记住账号</label></p>
+                <p><input type="submit" value="登录" class="submit"></p>
+                <p><a href="">忘记密码？</a></p>
+
+
+            </form>
+        </div>
+        <div class="right fl">
+            <div class="bg"></div>
+            <div class="regist">
+                <p>我不是会员，<a href="{:url('Login/register')}">要加入</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--底部-->
+{include file="common/footer" /}
+
+<!--回到顶部按钮-->
+<div class="toTopBtn"></div>
+<div class="customerBtn"></div>
+
+
+<div class="tishi">
+    <span>!</span>用户名或密码错误！
+</div>
+
+</body>
+
+<!--<script>
+    //登录验证
+    $('form').submit(function () {
+        $name = $('input[name=name]').val();
+        $pw = $('input[name=password]').val();
+
+        if ($name == '') {
+            $('input[name=name]').css({'background':'#FFF8F6'}).focus();
+        } else if ($pw == '') {
+            $('input[name=password]').css({'background':'#FFF8F6'}).focus();
+
+            $('input[name=name]').css({'background':'#FFF'});
+        } else {
+            $('input[name=name]').css({'background':'#FFF'});
+            $('input[name=password]').css({'background':'#FFF'});
+
+
+            if ($name == 'lin') {
+                if ($pw == 'lin') {
+                    alert('success');
+                    $('form').attr({'action': 'a.php'});
+                }
+            } else {
+                $('.tishi').show();
+                setTimeout(function () {
+                    $('.tishi').hide();
+                }, 2000);
+            }
+        }
+    });
+
+</script>-->
+</html>

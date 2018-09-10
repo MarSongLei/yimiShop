@@ -1,0 +1,117 @@
+{include file="common/header"}
+<!-- /头部 -->
+
+<div class="main-container container-fluid">
+  <div class="page-container">
+    <!-- Page Sidebar -->
+    {include file="common/left"}
+    <!-- /Page Sidebar -->
+    <!-- Page Content -->
+    <div class="page-content">
+      <!-- Page Breadcrumb -->
+      <div class="page-breadcrumbs">
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">系统</a>
+          </li>
+          <li class="active">商品管理</li>
+        </ul>
+      </div>
+      <!-- /Page Breadcrumb -->
+
+      <!-- Page Body -->
+      <div class="page-body">
+
+        <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url(\'Goods/add\')}'"> <i class="fa fa-plus"></i> Add
+        </button>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="widget">
+              <div class="widget-body">
+                <div class="flip-scroll">
+                  <table class="table table-bordered table-hover">
+                    <thead class="">
+                      <tr>
+                        <th class="text-center">商品ID</th>
+                        <th class="text-center">商品名称</th>
+                        <th class="text-center">分类名称</th>
+                        <th class="text-center">缩略图</th>
+                        <th class="text-center">关键字</th>
+                       <!-- <th class="text-center">商品简介</th>-->
+                        <th class="text-center">市场价</th>
+                        <th class="text-center">销售价</th>
+                        <th class="text-center">库存</th>
+                        <th class="text-center">冻结库存</th>
+                        <th class="text-center">上架状态</th>
+                        <th class="text-center">商品状态</th>
+                        <th class="text-center">是否热销</th>
+                        <th class="text-center">是否新品</th>
+                        <th class="text-center">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {foreach $data as $v}
+                      <tr>
+                        <td style="line-height: 97px;text-align: center;">{$v.goods_id}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.goods_name}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.cate_name}</td>
+                        <td style="line-height: 97px;text-align: center;">
+                          <img src="{$v.image_s_url}" alt=""></td>
+                        <td style="line-height: 97px;text-align: center;">{$v.keywords}</td>
+                      <!--  <td style="line-height: 97px;text-align: center;">{$v.desc}</td>-->
+                        <td style="line-height: 97px;text-align: center;">{$v.market_price}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.sell_price}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.store}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.freez}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.marketable == 1?'已上架':'未上架'}</td>
+                        <td style="line-height: 97px;text-align: center;">{$v.recycle == 1?'已删除':'正常'}</td>
+                        <td align="center">{$v.is_hot=='1'? '是':'否'}</td>
+                        <td align="center">{$v.is_new=='1'? '是':'否'}</td>
+                        <td style="line-height: 97px;text-align: center;">
+
+                          <a href="{:url('Image/index',['goods_id'=>$v.goods_id])}" class="btn btn-primary btn-sm shiny">
+                            <i class="fa fa-edit"></i> 图片管理
+                          </a>
+
+                          <a href="{:url('Goods/edit',['goods_id'=>$v.goods_id])}" class="btn btn-primary btn-sm shiny">
+                            <i class="fa fa-edit"></i> 编辑
+                          </a>
+                          {if condition="$v.recycle eq 0"}
+                          <a href="#" onClick="warning('确实要删除吗', '{:url(\'Goods/delete\',[\'goods_id\'=>$v.goods_id])}')" class="btn btn-danger btn-sm shiny">
+                          <i class="fa fa-trash-o"></i> 删除
+                          </a>
+                          {else /}
+                          <a href="#" onClick="warning('确实要撤销删除吗', '{:url(\'Goods/revokeDel\',[\'goods_id\'=>$v.goods_id])}')" class="btn btn-danger btn-sm shiny">
+                          <i class="fa fa-trash-o"></i> 撤销删除
+                          </a>
+                          {/if}
+                        </td>
+                      </tr>
+                    {/foreach}
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {$data->render()}
+      </div>
+
+      <!-- /Page Body -->
+    </div>
+    <!-- /Page Content -->
+  </div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__STATIC__/admin/style/jquery_002.js"></script>
+<script src="__STATIC__/admin/style/bootstrap.js"></script>
+<script src="__STATIC__/admin/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__STATIC__/admin/style/beyond.js"></script>
+
+
+</body></html>
